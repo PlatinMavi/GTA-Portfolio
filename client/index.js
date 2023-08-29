@@ -8,6 +8,16 @@ const start = () => {
     .then(() => DecreaseOpacity("grand"))
     .then(() => IncreaseOpacity("Scene-1"))
     .then(() => DecreaseOpacity("Scene-1"))
+    .then(() => IncreaseOpacity("Scene-2"))
+    .then(() => DecreaseOpacity("Scene-2"))
+    .then(() => IncreaseOpacity("Scene-3"))
+    .then(() => DecreaseOpacity("Scene-3"))
+    .then(() => IncreaseOpacity("Scene-4"))
+    .then(() => DecreaseOpacity("Scene-4"))
+    .then(() => IncreaseOpacity("Scene-5"))
+    .then(() => DecreaseOpacity("Scene-5"))
+    .then(() => IncreaseOpacity("Scene-6"))
+    .then(() => DecreaseOpacity("Scene-6"))
     .catch(error => console.error(error));
 }
 
