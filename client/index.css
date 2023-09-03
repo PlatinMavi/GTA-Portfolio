@@ -16,3 +16,8 @@
 .background{
     transform: scale(1.15);
 }
+
+.character{
+    transform: scale(1.15); /* 1.25x zoom */
+    transition: transform 12s; /* 10-second transition for the zoom effect */
+}

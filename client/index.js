@@ -80,6 +80,9 @@ const IncreaseOpacity = (id) => {
 
 const Zoomer = (id) =>{
     const zoomDiv = document.getElementById("background-"+id)
+    const characterDiv = document.getElementById("character-"+id)
     zoomDiv.classList.add("zoomed")
     zoomDiv.classList.remove("background")
+
+    characterDiv.classList.add("character")
 }
