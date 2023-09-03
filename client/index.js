@@ -6,25 +6,35 @@ const start = () => {
     })
     .then(() => IncreaseOpacity("grand"))
     .then(() => DecreaseOpacity("grand"))
-    .then(() => IncreaseOpacity("Scene-1"))
-    .then(() => DecreaseOpacity("Scene-1"))
-    .then(() => IncreaseOpacity("Scene-2"))
-    .then(() => DecreaseOpacity("Scene-2"))
-    .then(() => IncreaseOpacity("Scene-3"))
-    .then(() => DecreaseOpacity("Scene-3"))
-    .then(() => IncreaseOpacity("Scene-4"))
-    .then(() => DecreaseOpacity("Scene-4"))
-    .then(() => IncreaseOpacity("Scene-5"))
-    .then(() => DecreaseOpacity("Scene-5"))
-    .then(() => IncreaseOpacity("Scene-6"))
-    .then(() => DecreaseOpacity("Scene-6"))
+
+    .then(() => IncreaseOpacity("1"))
+    .then(() => DecreaseOpacity("1"))
+
+    .then(() => IncreaseOpacity("2"))
+    .then(() => DecreaseOpacity("2"))
+
+    .then(() => IncreaseOpacity("3"))
+    .then(() => DecreaseOpacity("3"))
+
+    .then(() => IncreaseOpacity("4"))
+    .then(() => DecreaseOpacity("4"))
+
+    .then(() => IncreaseOpacity("5"))
+    .then(() => DecreaseOpacity("5"))
+
+    .then(() => IncreaseOpacity("6"))
+    .then(() => DecreaseOpacity("6"))
     .catch(error => console.error(error));
 }
 
 const DecreaseOpacity = (id) => {
     return new Promise((resolve, reject) => {
-        var startDiv = document.getElementById(id);
-
+        if(id === "start" || id === "grand"){
+            var startDiv = document.getElementById(id);
+        }else{
+            var startDiv = document.getElementById("Scene-"+id);
+        }
+        
         startDiv.style.transition = "opacity 5s";
 
         setTimeout(function () {
@@ -43,7 +53,12 @@ const DecreaseOpacity = (id) => {
 
 const IncreaseOpacity = (id) => {
     return new Promise((resolve, reject) => {
-        var startDiv = document.getElementById(id);
+        if(id === "start" || id === "grand"){
+            var startDiv = document.getElementById(id);
+        }else{
+            var startDiv = document.getElementById("Scene-"+id);
+            Zoomer(id)
+        }
 
         startDiv.style.transition = "opacity 5s";
 
@@ -61,4 +76,10 @@ const IncreaseOpacity = (id) => {
             resolve(); // Resolve the promise
         });
     });
+}
+
+const Zoomer = (id) =>{
+    const zoomDiv = document.getElementById("background-"+id)
+    zoomDiv.classList.add("zoomed")
+    zoomDiv.classList.remove("background")
 }

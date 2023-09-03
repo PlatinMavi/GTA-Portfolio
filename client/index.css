@@ -7,3 +7,12 @@
     opacity: 0;
     transition: opacity 5s;
 }
+
+.zoomed {
+    transform: scale(1.00); /* 1.25x zoom */
+    transition: transform 12s; /* 10-second transition for the zoom effect */
+}
+
+.background{
+    transform: scale(1.15);
+}
