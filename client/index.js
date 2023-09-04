@@ -4,6 +4,7 @@ const start = () => {
         var audio = new Audio('theme.mp3');
         audio.play();
     })
+    .then(() => appendLoaderToRoot())
     .then(() => IncreaseOpacity("grand"))
     .then(() => DecreaseOpacity("grand"))
 
@@ -22,8 +23,6 @@ const start = () => {
     .then(() => IncreaseOpacity("5"))
     .then(() => DecreaseOpacity("5"))
 
-    .then(() => IncreaseOpacity("6"))
-    .then(() => DecreaseOpacity("6"))
     .catch(error => console.error(error));
 }
 
@@ -85,4 +84,33 @@ const Zoomer = (id) =>{
     zoomDiv.classList.remove("background")
 
     characterDiv.classList.add("character")
+}
+
+function appendLoaderToRoot() {
+    // Create a new div element
+    const loaderDiv = document.createElement("div");
+    loaderDiv.id = "loader";
+    loaderDiv.className = "absolute flex z-50 bottom-20 right-20";
+  
+    // Create a paragraph element for the text
+    const textParagraph = document.createElement("p");
+    textParagraph.className = "text-white text-3xl mt-4 mr-4";
+    textParagraph.id = "tips";
+    textParagraph.textContent = "Loading...";
+  
+    // Create a span element for the loader
+    const loaderSpan = document.createElement("span");
+    loaderSpan.className = "loader";
+  
+    // Append the paragraph and span elements to the loader div
+    loaderDiv.appendChild(textParagraph);
+    loaderDiv.appendChild(loaderSpan);
+  
+    // Find the element with the ID "root" and append the loader div to it
+    const rootElement = document.getElementById("root");
+    if (rootElement) {
+      rootElement.appendChild(loaderDiv);
+    } else {
+      console.error("Element with ID 'root' not found.");
+    }
 }
