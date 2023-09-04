@@ -1,7 +1,10 @@
 const start = () => {
+
+    let audio;
+
     DecreaseOpacity("start")
     .then(() => {
-        var audio = new Audio('theme.mp3');
+        audio = new Audio('theme.mp3');
         audio.play();
     })
     .then(() => appendLoaderToRoot())
@@ -23,12 +26,20 @@ const start = () => {
     .then(() => IncreaseOpacity("5"))
     .then(() => DecreaseOpacity("5"))
 
+    .then(() => IncreaseOpacity("main"))
+    .then(() => fixRoot())
+    .then(() => {
+        if (audio) {
+            audio.pause(); // Stop the audio if it exists
+        }
+    })
+
     .catch(error => console.error(error));
 }
 
 const DecreaseOpacity = (id) => {
     return new Promise((resolve, reject) => {
-        if(id === "start" || id === "grand"){
+        if(id === "start" || id === "grand" || id === "main"){
             var startDiv = document.getElementById(id);
         }else{
             var startDiv = document.getElementById("Scene-"+id);
@@ -52,7 +63,7 @@ const DecreaseOpacity = (id) => {
 
 const IncreaseOpacity = (id) => {
     return new Promise((resolve, reject) => {
-        if(id === "start" || id === "grand"){
+        if(id === "start" || id === "grand" || id === "main"){
             var startDiv = document.getElementById(id);
         }else{
             var startDiv = document.getElementById("Scene-"+id);
@@ -113,4 +124,12 @@ function appendLoaderToRoot() {
     } else {
       console.error("Element with ID 'root' not found.");
     }
+}
+
+const fixRoot = () => {
+    const root = document.getElementById("root")
+    root.classList.remove("overflow-hidden")
+
+    const loader = document.getElementById("loader")
+    loader.classList.add("hidden")
 }

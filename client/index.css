@@ -3,7 +3,7 @@
     transition: opacity 5s; /* 5-second transition for opacity */
 }
 
-.Scene, #grand{
+.Scene, #grand, #main{
     opacity: 0;
     transition: opacity 5s;
 }
