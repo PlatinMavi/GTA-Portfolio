@@ -46,7 +46,7 @@ const world = Globe()
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 1.8;
 
-fetch('./data.geojson').then(res => res.json()).then(countries => {
+fetch('./main/data.geojson').then(res => res.json()).then(countries => {
 world.polygonsData(countries.features.filter(d => d.properties.ISO_A2 !== 'AQ'));
 
 setTimeout(() => world

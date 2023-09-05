@@ -101,7 +101,7 @@ function appendLoaderToRoot() {
     // Create a new div element
     const loaderDiv = document.createElement("div");
     loaderDiv.id = "loader";
-    loaderDiv.className = "absolute flex z-50 bottom-20 right-20";
+    loaderDiv.className = "absolute f flex z-50 bottom-20 right-20";
   
     // Create a paragraph element for the text
     const textParagraph = document.createElement("p");
