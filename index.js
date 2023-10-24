@@ -47,6 +47,8 @@ const DecreaseOpacity = (id) => {
         
         startDiv.style.transition = "opacity 5s";
 
+        // startDiv.style.display = "none";
+
         setTimeout(function () {
             startDiv.style.opacity = "0";
         }, 100);
