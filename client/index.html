@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kablammo&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
 
     <style>
         @font-face {
@@ -26,6 +26,171 @@
         .f {
             font-family: "pricedown", Fallback, sans-serif;
         }
+
+        #start {
+            opacity: 1; /* Initial opacity */
+            transition: opacity 5s; /* 5-second transition for opacity */
+        }
+        
+        .Scene, #grand, #main{
+            opacity: 0;
+            transition: opacity 5s;
+        }
+        
+        .zoomed {
+            transform: scale(1.00); /* 1.25x zoom */
+            transition: transform 12s; /* 10-second transition for the zoom effect */
+        }
+        
+        .background{
+            transform: scale(1.15);
+        }
+        
+        .character{
+            transform: scale(1.15); /* 1.25x zoom */
+            transition: transform 12s; /* 10-second transition for the zoom effect */
+        }
+        
+        #tips {
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: black;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            border: 3px solid;
+            border-color: #FFF #FFF transparent transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+          }
+          .loader::after,
+          .loader::before {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid;
+            border-color: transparent transparent #FF3D00 #FF3D00;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            animation: rotationBack 0.5s linear infinite;
+            transform-origin: center center;
+          }
+          .loader::before {
+            width: 48px;
+            height: 48px;
+            border-color: #FFF #FFF transparent transparent;
+            animation: rotation 1.5s linear infinite;
+          }
+              
+          @keyframes rotation {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          } 
+          @keyframes rotationBack {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(-360deg);
+            }
+          }
+              
+        
+          @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          .containerB {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: 400px;
+            gap: 10px;
+          
+            > a {
+              flex: 0 0 400px;
+              border-radius: 0.5rem;
+              transition: 0.5s ease-in-out;
+              cursor: pointer;
+              box-shadow: 1px 5px 15px #2b2b2b;
+              position: relative;
+              overflow: hidden;
+          
+              &:nth-of-type(1) {
+                background: url("./main/1.png")
+                  no-repeat 50% / cover;
+              }
+              &:nth-of-type(2) {
+                background: url("./main/2.png")
+                  no-repeat 50% / cover;
+              }
+              &:nth-of-type(3) {
+                background: url("./main/3.png")
+                  no-repeat 50% / cover;
+              }
+              &:nth-of-type(4) {
+                background: url("./main/4.png")
+                  no-repeat 50% / cover;
+              }
+          
+              .content {
+                font-size: 1.5rem;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                opacity: 0;
+                flex-direction: column;
+                height: 100%;
+                justify-content: flex-end;
+                background: rgb(2, 2, 46);
+                background: linear-gradient(
+                  0deg,
+                  rgba(2, 2, 46, 0.6755077030812324) 0%,
+                  rgba(255, 255, 255, 0) 100%
+                );
+                transform: translatey(100%);
+                transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+                visibility: hidden;
+          
+                span {
+                  display: block;
+                  margin-top: 5px;
+                  font-size: 1.2rem;
+                }
+              }
+          
+              &:hover {
+                flex: 0 0 250px;
+                box-shadow: 1px 3px 15px #707070;
+                transform: translatey(-30px);
+              }
+          
+              &:hover .content {
+                opacity: 1;
+                transform: translatey(0%);
+                visibility: visible;
+              }
+            }
+          }
     </style>
     
 </head>
